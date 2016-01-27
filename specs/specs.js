@@ -18,6 +18,6 @@ describe('replaceLetter', function() {
 
 describe('correctGuess', function() {
   it("reveals letter in random word if guessed correctly", function() {
-    expect(correctGuess("o")).to.eql(["o", "_", "_", "_", "_", "_"]);
+    expect(correctGuess("g")).to.eql(["_", "_", "_", "_", "g", "_"]);
   });
 });

@@ -1,4 +1,5 @@
 var blanks = [];
+var letters = [];
 
 var randomWord = function(){
   var words = ["orange", "coffee", "onomatopoeia", "dangerous", "grandiose", "scintillating", "capricious", "whimsical", "pizzas", "demonic"]
@@ -7,8 +8,6 @@ var randomWord = function(){
 }
 
 var splitWord = function(randomWords){
-
-  var letters = [];
   for (var i=0; i<randomWords.length; i++){
     letters.push(randomWords[i]);
   }
@@ -23,10 +22,11 @@ var replaceLetter = function(splitWord) {
   return blanks;
 }
 
-var correctGuess = function(letter){
-  for (var i=0; i<splitWord.length; i++) {
-    if (splitWord[i] === letter);
-      blanks.splice(replaceLetter[i], 1, letter);
+var correctGuess = function(userLetter){
+  for (var i=0; i<letters.length; i++) {
+    if (letters[i] === userLetter) {
+      blanks.splice([i], 1, userLetter);
+    }
   }
   return blanks;
 }

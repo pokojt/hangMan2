@@ -1,5 +1,40 @@
+// function WordToBlank(randomWord,letters,blanks){
+//   this.randomWord = randomWord;
+//   this.letters = letters;
+//   this.blanks = blanks;
+// }
+//
+// WordToBlank.prototype.blanks = function(randomWord){
+//   var letters = []
+//     var words = ["orange", "coffee", "onomatopoeia", "dangerous", "grandiose", "scintillating", "capricious", "whimsical", "pizzas", "demonic"];
+//     this.randomWord = words[Math.floor(words.length * Math.random())];
+//       for (var i=0; i<this.randomWord.length; i++){
+//         letters.push(randomWord[i]);
+//       }
+//         return letters;
+//     }
+//   }
+//
+//
+//
+// // HangMan.prototype.guess = function(userLetter) {
+// //   // var blanks = [];
+// //   // var letters = [];
+// //
+// //   for (var i=0; i<this.letters.length; i++) {
+// //     if (this.letters[i] === userLetter) {
+// //       this.blanks.splice([i], 1, userLetter);
+// //     };
+// //   };
+// //   return this.blanks;
+// // };
+// //
+// //
+// //
+// //
 var blanks = [];
 var letters = [];
+
 var randomWord = function(){
   var words = ["orange", "coffee", "onomatopoeia", "dangerous", "grandiose", "scintillating", "capricious", "whimsical", "pizzas", "demonic"]
   var randomWords = words[Math.floor(words.length * Math.random())];
@@ -14,14 +49,13 @@ var splitWord = function(randomWords){
 }
 
 var replaceLetter = function(splitWord) {
-  // var blanks = [];
   for (var i=0; i<splitWord.length; i++) {
-    blanks.push("_");
+    blanks.push("_ ");
   }
   return blanks;
 }
 
-var correctGuess = function(userLetter){
+var guess = function(userLetter){
   for (var i=0; i<letters.length; i++) {
     if (letters[i] === userLetter) {
       blanks.splice([i], 1, userLetter);
@@ -37,3 +71,14 @@ var youWin = function(blanks) {
     return "Sorry, try again";
   }
 }
+
+$(document).ready(function() {
+  // $ randomWord();
+  // $ replaceLetter();
+  var random = randomWord();
+  var replace = replaceLetter(random);
+  $('.blanks').append(replace);
+  // $("form#guess").submit(function(event) {
+
+  // });
+});

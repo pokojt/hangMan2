@@ -12,3 +12,11 @@ var splitWord = function(randomWords){
   }
     return letters;
 }
+
+var replaceLetter = function(splitWord) {
+  var blanks = [];
+  for (var i=0; i<splitWord.length; i++) {
+    blanks.push("_");
+  }
+  return blanks;
+}

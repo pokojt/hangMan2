@@ -21,3 +21,9 @@ describe('correctGuess', function() {
     expect(correctGuess("g")).to.eql(["_", "_", "_", "_", "g", "_"]);
   });
 });
+
+describe('youWin', function() {
+  it("alerts user that they have won if all blanks are filled within correct amount of guesses", function() {
+    expect(youWin(["o", "r", "a", "n", "_", "e"])).to.equal("Sorry, try again");
+  });
+});

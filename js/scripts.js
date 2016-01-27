@@ -61,7 +61,7 @@ var guess = function(userLetter){
       blanks.splice([i], 1, userLetter);
     }
   }
-  return blanks;
+  return blanks.join(" ");
 }
 
 var youWin = function(blanks) {
@@ -73,12 +73,16 @@ var youWin = function(blanks) {
 }
 
 $(document).ready(function() {
-  // $ randomWord();
-  // $ replaceLetter();
   var random = randomWord();
+  var split = splitWord(random);
   var replace = replaceLetter(random);
   $('.blanks').append(replace);
-  // $("form#guess").submit(function(event) {
+  $("form#guess").submit(function(event) {
+    debugger;
+    event.preventDefault();
+    var userLetter = $("input#letter-choice").val();
+    var userGuess = guess(userLetter);
 
-  // });
+    $('.blanks').text(userGuess);
+  });
 });

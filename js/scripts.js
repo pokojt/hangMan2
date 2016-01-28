@@ -38,7 +38,7 @@
 var blanks = [];
 var letters = [];
 
-var wordGenerator = function(){
+var wordGenerator = function(randomWord){
   var wordList = ["orange", "coffee", "onomatopoeia", "dangerous", "grandiose", "scintillating", "capricious", "whimsical", "pizzas", "demonic"]
   var randomWord = wordList[Math.floor(wordList.length * Math.random())];
   return randomWord;
@@ -76,7 +76,7 @@ var youWin = function(blanks) {
 };
 //
 $(document).ready(function() {
-  var random = wordGenerator();
+  var random = wordGenerator(); // we discovered that this line is what breaks the specs!
   var split = splitWord(random);
   var replace = replaceLetter(split);
   $('.blanks').text(replace.join(" "));

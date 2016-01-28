@@ -37,6 +37,7 @@
 
 var blanks = [];
 var letters = [];
+var clickCount = 0;
 
 var wordGenerator = function(randomWord){
   var wordList = ["orange", "coffee", "onomatopoeia", "dangerous", "grandiose", "scintillating", "capricious", "whimsical", "pizzas", "demonic"]
@@ -44,7 +45,7 @@ var wordGenerator = function(randomWord){
   return randomWord;
 };
 
-var splitWord = function(randomWord){   //loop ends in orange each time
+var splitWord = function(randomWord){
   for (var i=0; i<randomWord.length; i++){
     letters.push(randomWord[i]);
   };
@@ -59,11 +60,18 @@ var replaceLetter = function(splitWord) {
 };
 
 var guess = function(userLetter){
+  var correctGuess = false;
+
   for (var i=0; i<letters.length; i++) {
     if (letters[i] === userLetter) {
-      blanks.splice([i], 1, userLetter);
-    };
-  };
+        blanks.splice([i], 1, userLetter);
+        correctGuess = true;
+    }
+  }
+  if (correctGuess === false) {
+    clickCount += 1;
+    $("#images").empty().append('<img src ="img/hang' + clickCount + '.gif">')
+  }
   return blanks;
 };
 
@@ -76,15 +84,22 @@ var youWin = function(blanks) {
 };
 //
 $(document).ready(function() {
-  var random = wordGenerator(); // we discovered that this line is what breaks the specs!
+  var random = wordGenerator();
   var split = splitWord(random);
   var replace = replaceLetter(split);
+  var clickCount = 0;
+  $("#images").append('<img src ="img/hang0.gif">');
+
   $('.blanks').text(replace.join(" "));
   $("form#guess").submit(function(event) {
+
     event.preventDefault();
     var userLetter = $("input#letter-choice").val();
     var userGuess = guess(userLetter);
+    var images = $('#images');
 
-    $('.blanks').text(userGuess.join(" "));
+    if (userGuess.includes(userLetter)){
+     $('.blanks').text(userGuess.join(" "));
+    }
   });
 });

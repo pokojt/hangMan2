@@ -21,7 +21,7 @@
 
 describe('wordGenerator', function() {
   it("generates a random word from an array", function() {
-    expect(wordGenerator("orange")).to.be.a('string');
+    expect(wordGenerator()).to.be.a('string');
   });
 });
 

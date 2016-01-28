@@ -1,7 +1,7 @@
 // describe('WordToBlank', function() {
 //   it("selects random word, splits up letters into an array, and creates blank spaces for each letter", function(){
 //   var testWordToBlank = new WordToBlank('string', ["o", "r", "a", "n", "g", "e"], ["_", "_", "_", "_", "_", "_"]);
-//   expect(testWordToBlank.words).to.be.a('string');
+//   expect(testWordToBlank.wordList).to.be.a('string');
 //   expect(testWordToBlank.letters).to.eql(["o", "r", "a", "n", "g", "e"]);
 //   expect(testWordToBlank.blanks).to.eql(["_", "_", "_", "_", "_", "_"]);
 //   });
@@ -19,9 +19,9 @@
 
 
 
-describe('randomWord', function() {
+describe('wordGenerator', function() {
   it("generates a random word from an array", function() {
-    expect(randomWord("orange")).to.be.a('string');
+    expect(wordGenerator("orange")).to.be.a('string');
   });
 });
 

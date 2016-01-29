@@ -107,5 +107,9 @@ $(document).ready(function() {
     }
     $("input#letter-choice").val("");
 
+    if (/[_]/.test(blanks) === false) {
+      $(".winner").show();
+    }
+
   });
 });

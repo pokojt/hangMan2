@@ -82,11 +82,11 @@ var guess = function(userLetter){
 var youWin = function(blanks) {
   if (/[_]/.test(blanks) === false){
     return "You win!";
-  } else {
-    return "Sorry, try again";
-  };
+  }
 };
-//
+
+
+
 $(document).ready(function() {
   var random = wordGenerator();
   var split = splitWord(random);

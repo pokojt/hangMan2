@@ -1,3 +1,13 @@
+.body {
+  align-items: center;
+}
+
 .blanks {
   font-size: 48px;
+}
+
+
+#images img {
+  height: 200px;
+  width: auto;
 }

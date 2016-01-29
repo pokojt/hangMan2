@@ -68,9 +68,13 @@ var guess = function(userLetter){
         correctGuess = true;
     }
   }
-  if (correctGuess === false) {
+  if (correctGuess === false && clickCount < 10) {
     clickCount += 1;
     $("#images").empty().append('<img src ="img/hang' + clickCount + '.gif">')
+  }
+  else if (correctGuess === false && clickCount >= 10) {
+    alert("Sorry, try again!");
+    window.location.reload();
   }
   return blanks;
 };
@@ -101,5 +105,7 @@ $(document).ready(function() {
     if (userGuess.includes(userLetter)){
      $('.blanks').text(userGuess.join(" "));
     }
+    $("input#letter-choice").val("");
+
   });
 });

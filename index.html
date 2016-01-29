@@ -8,27 +8,26 @@
     <title>HangMan</title>
   </head>
   <body>
-    <div class="container">
-      <h1>Hangman</h1>
-      <div class="row">
-        <div class="col-md-6">
-
-          <form id=guess>
-            <label for="letter-choice">Type a letter here:</label>
-            <input type="text" id="letter-choice">
-            <button type="submit" class="btn btn-primary">Guess</button>
-          </form>
-          <div class="wordblanks">
-            <span class="blanks"></span>
-
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div id="images">
-          
-          </div>
-        </div>
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Hangman</h1>
       </div>
+    </div>
+    <div class="container">
+      <div id="images">
+
+      </div>
+      <br></br>
+      <div class="wordblanks">
+        <span class="blanks"></span>
+
+      </div>
+      <br></br>
+      <form id=guess>
+        <label for="letter-choice">Type a letter here:</label>
+        <input type="text" id="letter-choice">
+        <button type="submit" class="btn btn-primary">Guess</button>
+      </form>
     </div>
 
   </body>
